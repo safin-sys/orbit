@@ -175,7 +175,7 @@ const app = new Hono<{ Bindings: Bindings }>()
 .post("/forgot", zValidator("json", ForgotBodySchema), async (c) => {
     const data = c.req.valid("json");
 
-    const res = await forgot(c.env.DB, data, c.env.RESEND_API_KEY, c.env.API_URL);
+    const res = await forgot(c.env.DB, data, c.env.RESEND_API_KEY);
 
     return response(c, res);
 })
