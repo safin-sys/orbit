@@ -68,6 +68,32 @@ export const signup = async (email: string, password: string, name: string) => {
 	return true;
 };
 
+export const forgot_password = async (email: string) => {
+	auth.error = "";
+	auth.loading = true;
+	const { error } = await api.forgot({ email });
+	if (error) {
+		auth.error = error?.message || "Something went wrong";
+		auth.loading = false;
+		return false;
+	}
+	auth.loading = false;
+	return true;
+};
+
+export const reset_password = async (token: string, new_password: string) => {
+	auth.error = "";
+	auth.loading = true;
+	const { error } = await api.reset({ token, new_password });
+	if (error) {
+		auth.error = error?.message || "Something went wrong";
+		auth.loading = false;
+		return false;
+	}
+	auth.loading = false;
+	return true;
+};
+
 export const logout = async () => {
 	auth.loading = true;
 	const { error } = await api.logout();

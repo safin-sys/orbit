@@ -239,7 +239,6 @@ const forgot = async (
     db: D1Database,
     data: ForgotBody,
     resend_api_key: string,
-    api_url: string,
 ): Promise<AResponse> => {
     const user = await check_user_exists(db, data.email);
 
@@ -257,7 +256,7 @@ const forgot = async (
 
     const email_payload = {
         to: user.email,
-        url: `${api_url}/reset/${token}`,
+        url: `https://orbit.pages.dev/reset/${token}`,
     };
 
     try {
