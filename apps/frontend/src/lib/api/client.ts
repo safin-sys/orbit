@@ -39,33 +39,29 @@ const tryRefreshToken = async (): Promise<void> => {
 };
 
 const customFetch = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
-	try {
-		const url = typeof input === "string" ? input : input.toString();
+	const url = typeof input === "string" ? input : input.toString();
 
-		const response = await fetch(input, {
-			...init,
-			credentials: "include"
-		});
+	const response = await fetch(input, {
+		...init,
+		credentials: "include"
+	});
 
-		const isAuthRequest = url.includes("/auth/") && !url.includes("/auth/me");
+	const isAuthRequest = url.includes("/auth/") && !url.includes("/auth/me");
 
-		if (response.status === 401 && !isAuthRequest) {
-			try {
-				await tryRefreshToken();
-				return fetch(input, {
-					...init,
-					credentials: "include"
-				});
-			} catch {
-				await logout();
-				return response;
-			}
+	if (response.status === 401 && !isAuthRequest) {
+		try {
+			await tryRefreshToken();
+			return fetch(input, {
+				...init,
+				credentials: "include"
+			});
+		} catch {
+			await logout();
+			return response;
 		}
-
-		return response;
-	} catch (error) {
-		throw error;
 	}
+
+	return response;
 };
 
 export const api = hc<AppType>(PUBLIC_API_URL, {
