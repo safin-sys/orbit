@@ -3,6 +3,7 @@
 	import SaturnCanvas from "$lib/components/home/saturn-canvas.svelte";
 	import Features from "$lib/components/home/features.svelte";
 	import HowItWorks from "$lib/components/home/how-it-works.svelte";
+	import Footer from "$lib/components/home/footer.svelte";
 	import { Button } from "$lib/components/ui/button";
 </script>
 
@@ -78,5 +79,6 @@
 
 	<Features />
 	<HowItWorks />
+	<Footer />
 	<FloatingNav />
 </div>
