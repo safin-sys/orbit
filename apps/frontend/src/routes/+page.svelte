@@ -3,6 +3,7 @@
 	import SaturnCanvas from "$lib/components/home/saturn-canvas.svelte";
 	import Features from "$lib/components/home/features.svelte";
 	import HowItWorks from "$lib/components/home/how-it-works.svelte";
+	import CTA from "$lib/components/home/cta.svelte";
 	import Footer from "$lib/components/home/footer.svelte";
 	import { Button } from "$lib/components/ui/button";
 	import favicon from "$lib/assets/favicon.svg";
@@ -18,7 +19,7 @@
 		<div class="container mx-auto px-6">
 			<div class="max-w-3xl">
 				<div class="mb-16 flex items-center gap-3">
-					<img src={favicon} alt="Orbit" class="w-6 h-6" />
+					<img src={favicon} alt="Orbit" class="h-6 w-6" />
 					<span class="text-2xl font-medium tracking-tight">Orbit</span>
 					<span
 						class="rounded-md border border-border px-1.5 py-0.5 text-[10px] font-medium tracking-widest text-muted-foreground uppercase"
@@ -62,6 +63,7 @@
 
 	<Features />
 	<HowItWorks />
+	<CTA />
 	<Footer />
 	<FloatingNav />
 </div>
