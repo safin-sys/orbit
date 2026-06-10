@@ -26,7 +26,7 @@
 	];
 </script>
 
-<section class="border-t border-border bg-muted py-32">
+<section class="border-t border-border py-32">
 	<div class="container mx-auto px-6">
 		<div class="mx-auto mb-20 max-w-2xl text-center">
 			<h2 class="mb-5 text-4xl font-bold tracking-tight md:text-5xl">Get started in 3 steps</h2>
