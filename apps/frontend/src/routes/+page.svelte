@@ -1,6 +1,8 @@
 <script lang="ts">
 	import FloatingNav from "$lib/components/common/nav.svelte";
 	import SaturnCanvas from "$lib/components/home/saturn-canvas.svelte";
+	import Features from "$lib/components/home/features.svelte";
+	import HowItWorks from "$lib/components/home/how-it-works.svelte";
 	import { Button } from "$lib/components/ui/button";
 </script>
 
@@ -41,7 +43,9 @@
 				>
 			</div>
 
-			<h1 class="mb-8 text-6xl leading-[0.9] font-bold tracking-tighter md:text-8xl text-foreground">
+			<h1
+				class="mb-8 text-6xl leading-[0.9] font-bold tracking-tighter text-foreground md:text-8xl"
+			>
 				Ship faster.<br />
 				Track everything.
 			</h1>
@@ -72,5 +76,7 @@
 		</div>
 	</main>
 
+	<Features />
+	<HowItWorks />
 	<FloatingNav />
 </div>
