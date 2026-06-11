@@ -140,13 +140,13 @@ export const get_dashboard = async (
         ...filterParams
     } = params;
 
-    const range = resolve_range(rangeSlug);
+    const { range, chart_range } = resolve_range(rangeSlug);
     const filters: DashboardFilters = filterParams;
 
     const [summary, chart, pages, sources, locations, devices] =
         await Promise.all([
             query_summary(DB, projectId, range, filters),
-            query_chart(DB, projectId, range, filters),
+            query_chart(DB, projectId, chart_range, filters),
             query_pages(DB, projectId, range, filters, pageView),
             query_sources(DB, projectId, range, filters),
             query_locations(DB, projectId, range, filters, locationView),
