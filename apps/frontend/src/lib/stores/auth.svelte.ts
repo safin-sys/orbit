@@ -1,6 +1,6 @@
 import { auth as api } from "$lib/api";
 
-export let auth = $state({
+export const auth = $state({
 	user: null,
 	is_authenticated: false,
 	loading: false,

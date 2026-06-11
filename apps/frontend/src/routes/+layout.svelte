@@ -1,17 +1,21 @@
 <script lang="ts">
-	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
-	import { fade } from 'svelte/transition';
-	import { auth, init } from '$lib/stores/auth.svelte';
-	import { beforeNavigate } from '$app/navigation';
-	import { dashboard, reset_dashboard } from '$lib/stores/dashboard.svelte';
-	import { onMount } from 'svelte';
-	import { Toaster } from '$lib/components/ui/sonner';
+	import "./layout.css";
+	import favicon from "$lib/assets/favicon.svg";
+	import { fade } from "svelte/transition";
+	import { auth, init } from "$lib/stores/auth.svelte";
+	import { beforeNavigate, goto } from "$app/navigation";
+	import { dashboard, reset_dashboard } from "$lib/stores/dashboard.svelte";
+	import { onMount } from "svelte";
+	import { Toaster } from "$lib/components/ui/sonner";
+	import { resolve } from "$app/paths";
 
 	let { children } = $props();
 
-	onMount(() => {
-		init();
+	onMount(async () => {
+		await init();
+		if (auth.is_authenticated) {
+			goto(resolve("/dashboard"), { replaceState: true });
+		}
 	});
 
 	beforeNavigate((nav) => {
