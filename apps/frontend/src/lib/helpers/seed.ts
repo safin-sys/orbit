@@ -93,10 +93,11 @@ export function seed_dashboard(params: DashboardQueryParams, projectId: string):
 	};
 
 	const days_diff = Math.max(1, Math.ceil((new Date(range.to).getTime() - new Date(range.from).getTime()) / (1000 * 60 * 60 * 24)));
+	const chart_days = Math.max(3, days_diff);
 	const chart = [];
-	for (let i = 0; i < days_diff; i++) {
-		const date = new Date(range.from);
-		date.setDate(date.getDate() + i);
+	for (let i = 0; i < chart_days; i++) {
+		const date = new Date(range.to);
+		date.setDate(date.getDate() - (chart_days - 1 - i));
 		chart.push({
 			date: date.toISOString().split("T")[0],
 			entries: faker.number.int({ min: 10, max: 500 }),
@@ -158,14 +159,14 @@ export function seed_dashboard(params: DashboardQueryParams, projectId: string):
 	];
 
 	const cityRows = [
-		{ city: "San Francisco", countryCode: "US", visitors: faker.number.int({ min: 50, max: 500 }) },
-		{ city: "New York", countryCode: "US", visitors: faker.number.int({ min: 40, max: 400 }) },
-		{ city: "Los Angeles", countryCode: "US", visitors: faker.number.int({ min: 30, max: 300 }) },
-		{ city: "London", countryCode: "GB", visitors: faker.number.int({ min: 40, max: 350 }) },
-		{ city: "Toronto", countryCode: "CA", visitors: faker.number.int({ min: 25, max: 200 }) },
-		{ city: "Berlin", countryCode: "DE", visitors: faker.number.int({ min: 20, max: 180 }) },
-		{ city: "Paris", countryCode: "FR", visitors: faker.number.int({ min: 15, max: 150 }) },
-		{ city: "Tokyo", countryCode: "JP", visitors: faker.number.int({ min: 20, max: 200 }) },
+		{ city: "San Francisco", region: "California", countryCode: "US", visitors: faker.number.int({ min: 50, max: 500 }) },
+		{ city: "New York", region: "New York", countryCode: "US", visitors: faker.number.int({ min: 40, max: 400 }) },
+		{ city: "Los Angeles", region: "California", countryCode: "US", visitors: faker.number.int({ min: 30, max: 300 }) },
+		{ city: "London", region: "England", countryCode: "GB", visitors: faker.number.int({ min: 40, max: 350 }) },
+		{ city: "Toronto", region: "Ontario", countryCode: "CA", visitors: faker.number.int({ min: 25, max: 200 }) },
+		{ city: "Berlin", region: "Berlin", countryCode: "DE", visitors: faker.number.int({ min: 20, max: 180 }) },
+		{ city: "Paris", region: "Ile-de-France", countryCode: "FR", visitors: faker.number.int({ min: 15, max: 150 }) },
+		{ city: "Tokyo", region: "Tokyo", countryCode: "JP", visitors: faker.number.int({ min: 20, max: 200 }) },
 	];
 
 	const locationView = params.locationView || "country";
@@ -191,9 +192,9 @@ export function seed_dashboard(params: DashboardQueryParams, projectId: string):
 	];
 
 	const device_data = [
-		{ device: "Desktop", visitors: faker.number.int({ min: 2000, max: 4000 }), percentage: 60 },
-		{ device: "Mobile", visitors: faker.number.int({ min: 1000, max: 2500 }), percentage: 35 },
-		{ device: "Tablet", visitors: faker.number.int({ min: 50, max: 300 }), percentage: 5 },
+		{ device: "desktop", visitors: faker.number.int({ min: 2000, max: 4000 }), percentage: 60 },
+		{ device: "mobile", visitors: faker.number.int({ min: 1000, max: 2500 }), percentage: 35 },
+		{ device: "tablet", visitors: faker.number.int({ min: 50, max: 300 }), percentage: 5 },
 	];
 
 	const deviceView = params.deviceView || "browser";

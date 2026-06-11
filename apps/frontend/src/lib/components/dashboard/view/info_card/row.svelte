@@ -120,7 +120,7 @@
 					</div>
 				{/key}
 			{/if}
-			<span class="text-sm">{device_name}</span>
+			<span class="text-sm capitalize">{device_name}</span>
 		</div>
 		<div class="flex items-center gap-3">
 			<div class="w-12 text-right text-sm">
