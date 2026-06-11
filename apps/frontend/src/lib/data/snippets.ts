@@ -1,10 +1,4 @@
 export const snippets = {
-  html: {
-    label: "HTML",
-    language: "html",
-    code: `<script src="https://orbit.pages.dev/orbit.js" data-api-key="YOUR_API_KEY" defer></script>`,
-  },
-
   next: {
     label: "Next.js",
     language: "tsx",
@@ -137,6 +131,12 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setPostBodyComponents 
     />,
   ]);
 };`,
+  },
+
+  html: {
+    label: "HTML",
+    language: "html",
+    code: `<script src="https://orbit.pages.dev/orbit.js" data-api-key="YOUR_API_KEY" defer></script>`,
   },
 } as const;
 

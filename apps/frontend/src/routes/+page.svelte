@@ -3,6 +3,7 @@
 	import SaturnCanvas from "$lib/components/home/saturn-canvas.svelte";
 	import Features from "$lib/components/home/features.svelte";
 	import HowItWorks from "$lib/components/home/how-it-works.svelte";
+	import Installation from "$lib/components/home/installation.svelte";
 	import CTA from "$lib/components/home/cta.svelte";
 	import Footer from "$lib/components/home/footer.svelte";
 	import { Button } from "$lib/components/ui/button";
@@ -34,7 +35,9 @@
 					Track everything.
 				</h1>
 
-				<p class="mb-10 max-w-xl text-base leading-relaxed text-muted-foreground sm:mb-12 sm:text-xl">
+				<p
+					class="mb-10 max-w-xl text-base leading-relaxed text-muted-foreground sm:mb-12 sm:text-xl"
+				>
 					One script. Infinite insights. Understand your users better with privacy-first analytics.
 				</p>
 
@@ -61,6 +64,7 @@
 		</div>
 	</main>
 
+	<Installation />
 	<Features />
 	<HowItWorks />
 	<CTA />

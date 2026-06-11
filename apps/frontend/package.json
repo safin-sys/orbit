@@ -18,7 +18,8 @@
 		"@orbit/backend": "workspace:*",
 		"chart.js": "^4.5.1",
 		"countries-list": "^3.3.0",
-		"hono": "4.12.9"
+		"hono": "4.12.9",
+		"shiki": "^4.2.0"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.3",
