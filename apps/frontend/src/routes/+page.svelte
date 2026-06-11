@@ -15,10 +15,10 @@
 
 <div class="min-h-screen overflow-x-hidden bg-background font-sans text-foreground">
 	<SaturnCanvas />
-	<main class="relative z-10 flex min-h-screen items-center">
-		<div class="container mx-auto px-6">
+	<main class="relative z-10 flex min-h-screen items-start pt-40 md:items-center md:pt-0">
+		<div class="container mx-auto px-4 sm:px-6">
 			<div class="max-w-3xl">
-				<div class="mb-16 flex items-center gap-3">
+				<div class="mb-8 flex items-center gap-3 sm:mb-16">
 					<img src={favicon} alt="Orbit" class="h-6 w-6" />
 					<span class="text-2xl font-medium tracking-tight">Orbit</span>
 					<span
@@ -28,13 +28,13 @@
 				</div>
 
 				<h1
-					class="mb-8 text-6xl leading-[0.9] font-bold tracking-tighter text-foreground md:text-8xl"
+					class="mb-6 text-5xl leading-[0.9] font-bold tracking-tighter text-foreground sm:text-6xl md:text-8xl"
 				>
 					Ship faster.<br />
 					Track everything.
 				</h1>
 
-				<p class="mb-12 max-w-xl text-xl leading-relaxed text-muted-foreground">
+				<p class="mb-10 max-w-xl text-base leading-relaxed text-muted-foreground sm:mb-12 sm:text-xl">
 					One script. Infinite insights. Understand your users better with privacy-first analytics.
 				</p>
 

@@ -26,16 +26,16 @@
 	];
 </script>
 
-<section class="border-t border-border py-32">
-	<div class="container mx-auto px-6">
-		<div class="mx-auto mb-20 max-w-2xl text-center">
+<section class="border-t border-border py-16 md:py-32">
+	<div class="container mx-auto px-4 sm:px-6">
+		<div class="mx-auto mb-10 max-w-2xl text-center md:mb-20">
 			<h2 class="mb-5 text-4xl font-bold tracking-tight md:text-5xl">Get started in 3 steps</h2>
 			<p class="text-lg leading-relaxed text-muted-foreground">
 				From zero to insights in minutes. No configuration, no headache.
 			</p>
 		</div>
 
-		<div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-3" use:inView>
+		<div class="mx-auto grid max-w-5xl gap-6 md:gap-8 md:grid-cols-3" use:inView>
 			{#each steps as step, i}
 				<div
 					class="relative flex animate-fade-in-up-stagger flex-col items-center text-center"

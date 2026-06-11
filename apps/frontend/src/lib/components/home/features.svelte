@@ -44,9 +44,9 @@
 	];
 </script>
 
-<section use:inView class="animate-fade-in-up py-32">
-	<div class="container mx-auto px-6">
-		<div class="mx-auto mb-20 max-w-2xl text-center">
+<section use:inView class="animate-fade-in-up py-16 md:py-32">
+	<div class="container mx-auto px-4 sm:px-6">
+		<div class="mx-auto mb-10 max-w-2xl text-center md:mb-20">
 			<h2 class="mb-5 text-4xl font-bold tracking-tight md:text-5xl">
 				Everything you need to understand your audience
 			</h2>
@@ -58,7 +58,7 @@
 		<div class="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-3">
 			{#each features as feature, i}
 				<article
-					class="animate-fade-in-up-stagger rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:border-muted-foreground/20 hover:bg-muted/30"
+					class="animate-fade-in-up-stagger rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:border-muted-foreground/20 hover:bg-muted/30 sm:p-6"
 					style="animation-delay: {i * 80}ms"
 				>
 					<div

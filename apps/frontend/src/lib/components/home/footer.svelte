@@ -4,10 +4,10 @@
 	import favicon from "$lib/assets/favicon.svg";
 </script>
 
-<footer class="border-t border-border py-16 pb-28">
-	<div class="container mx-auto px-6">
+<footer class="border-t border-border py-12 pb-28 md:py-16">
+	<div class="container mx-auto px-4 sm:px-6">
 		<div
-			class="mx-auto flex max-w-5xl flex-col items-start justify-between gap-10 md:flex-row md:items-center"
+			class="mx-auto flex max-w-5xl flex-col items-start justify-between gap-8 md:flex-row md:items-center md:gap-10"
 		>
 			<div class="space-y-4">
 				<div class="flex items-center gap-2">

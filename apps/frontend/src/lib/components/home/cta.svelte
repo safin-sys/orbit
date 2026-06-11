@@ -84,12 +84,12 @@
 >
 	<canvas bind:this={canvas} class="pointer-events-none absolute inset-0 z-0"></canvas>
 	<div class="relative z-10">
-		<div class="container mx-auto px-6">
+		<div class="container mx-auto px-4 sm:px-6">
 			<div class="mx-auto max-w-2xl text-center">
 				<h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
 					Ready to ship faster?
 				</h2>
-				<p class="mb-10 text-base leading-relaxed text-muted-foreground sm:text-lg md:mb-12">
+				<p class="mb-8 text-base leading-relaxed text-muted-foreground sm:text-lg md:mb-12">
 					Start tracking in minutes. Free to get started, no credit card required.
 				</p>
 				<div class="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
