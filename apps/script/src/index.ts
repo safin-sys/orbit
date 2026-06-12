@@ -39,11 +39,11 @@ if (!apiKey) {
 
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
-      batcher.flush();
+      batcher.flush({ use_beacon: true });
     }
   });
 
   window.addEventListener('beforeunload', () => {
-    batcher.flush();
+    batcher.flush({ use_beacon: true });
   });
 }
