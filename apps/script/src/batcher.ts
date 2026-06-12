@@ -26,7 +26,7 @@ export interface BatchPayload {
 
 export interface Batcher {
     add: (event: AnalyticsEvent) => void;
-    flush: () => Promise<void>;
+    flush: (opts?: { use_beacon?: boolean }) => Promise<void>;
 }
 
 const defaultConfig = {
@@ -39,7 +39,7 @@ export const createBatcher = (props: BatcherConfig): Batcher => {
     let queue: AnalyticsEvent[] = [];
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
-    const flush = async (): Promise<void> => {
+    const flush = async (opts?: { use_beacon?: boolean }): Promise<void> => {
         if (timeoutId) {
             clearTimeout(timeoutId);
             timeoutId = null;
@@ -55,7 +55,7 @@ export const createBatcher = (props: BatcherConfig): Batcher => {
 
         queue = [];
 
-        await sendBatch(payload);
+        await sendBatch(payload, opts?.use_beacon);
     };
 
     const add = (event: AnalyticsEvent): void => {
