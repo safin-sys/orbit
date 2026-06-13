@@ -4,7 +4,7 @@
 
 <Card>
 	<CardHeader>
-		<CardTitle>Allow Domain List</CardTitle>
+		<CardTitle>Allowed Domains List</CardTitle>
 	</CardHeader>
 	<CardContent>
 		<p class="text-muted-foreground">Coming soon...</p>
