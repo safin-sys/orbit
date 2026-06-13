@@ -111,7 +111,11 @@ const getAll = async (
     owner_id: string,
 ): Promise<AResponse> => {
     try {
-        const projects = await get_projects_by_owner_id(db, owner_id);
+        const rows = await get_projects_by_owner_id(db, owner_id);
+        const projects = rows.map((p) => ({
+            ...p,
+            allowed_domains: p.allowed_domains ? JSON.parse(p.allowed_domains) : null,
+        }));
 
         return {
             success: true,
