@@ -62,14 +62,14 @@ const get_project_by_id = async (
 };
 
 const get_projects_by_owner_id = async (
-    db: D1Database,
-    owner_id: string,
+  db: D1Database,
+  owner_id: string,
 ): Promise<{ id: string; name: string; domain: string; api_key: string; allowed_domains: string | null }[]> => {
-    const result = await db
-        .prepare("SELECT id, name, domain, api_key, allowed_domains FROM projects WHERE owner_id = ? AND is_active = true")
-        .bind(owner_id)
-        .all();
-    return result.results as { id: string; name: string; domain: string; api_key: string; allowed_domains: string | null }[];
+  const result = await db
+    .prepare("SELECT id, name, domain, api_key, allowed_domains FROM projects WHERE owner_id = ? AND is_active = true")
+    .bind(owner_id)
+    .all();
+  return result.results as { id: string; name: string; domain: string; api_key: string; allowed_domains: string | null }[];
 };
 
 const delete_project = async (db: D1Database, id: string, owner_id: string) => {
@@ -79,7 +79,7 @@ const delete_project = async (db: D1Database, id: string, owner_id: string) => {
     .run();
 };
 
-const rotate_api_key = async (db: D1Database, id: string, owner_id: string, new_api_key: string) => {
+const update_api_key = async (db: D1Database, id: string, owner_id: string, new_api_key: string) => {
   return await db
     .prepare("UPDATE projects SET api_key = ?, updated_at = ? WHERE id = ? AND owner_id = ?")
     .bind(new_api_key, Date.now(), id, owner_id)
@@ -92,5 +92,5 @@ export {
   get_project_by_id,
   get_projects_by_owner_id,
   delete_project,
-  rotate_api_key,
+  update_api_key,
 };
