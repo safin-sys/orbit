@@ -57,6 +57,7 @@ const create = async (
 
 const update = async (
   db: D1Database,
+  CACHE_KV: KVNamespace,
   project_id: string,
   owner_id: string,
   data: UpdateProjectBody,
@@ -84,12 +85,18 @@ const update = async (
     }
 
     await update_project(db, project_id, data);
+
+    // Invalidate cache if allowed_domains is updated
+    if (JSON.stringify(data.allowed_domains) !== JSON.stringify(project.allowed_domains)) {
+      await CACHE_KV.delete(project.api_key)
+    }
     return {
       success: true,
       message: "Project updated successfully",
       data: {
         project: {
-          name: project.name,
+          name: data.name ?? project.name,
+          allowed_domains: data.allowed_domains ?? project.allowed_domains
         },
       },
       error: null,

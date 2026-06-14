@@ -74,7 +74,7 @@ const app = new Hono<{ Bindings: Bindings }>()
         const projectId = c.req.param("projectId");
         const data = c.req.valid("json");
 
-        const res = await update(c.env.DB, projectId, payload.id, data);
+        const res = await update(c.env.DB, c.env.CACHE_KV, projectId, payload.id, data);
 
         return response(c, res);
       } catch (error) {
