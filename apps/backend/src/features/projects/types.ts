@@ -36,5 +36,5 @@ export interface Project {
   usage_period_end?: number | null;
   // misc
   settings_json?: string | null;
-  allowed_domains?: string[] | null;
+  allowed_domains?: string | null;
 }

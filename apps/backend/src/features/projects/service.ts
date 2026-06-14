@@ -87,7 +87,7 @@ const update = async (
     await update_project(db, project_id, data);
 
     // Invalidate cache if allowed_domains is updated
-    if (JSON.stringify(data.allowed_domains) !== JSON.stringify(project.allowed_domains)) {
+    if (JSON.stringify(data.allowed_domains ?? null) !== JSON.stringify(project.allowed_domains ? JSON.parse(project.allowed_domains) as string[] : null)) {
       await CACHE_KV.delete(project.api_key)
     }
     return {
@@ -96,7 +96,7 @@ const update = async (
       data: {
         project: {
           name: data.name ?? project.name,
-          allowed_domains: data.allowed_domains ?? project.allowed_domains
+          allowed_domains: data.allowed_domains ?? (project.allowed_domains ? JSON.parse(project.allowed_domains) as string[] : null)
         },
       },
       error: null,

@@ -1,4 +1,4 @@
-import { Project } from "./types";
+import { Project, UpdateProjectBody } from "./types";
 
 const create_project = async (db: D1Database, data: Project) => {
   return await db
@@ -26,7 +26,7 @@ const create_project = async (db: D1Database, data: Project) => {
 const update_project = async (
   db: D1Database,
   id: string,
-  updates: Partial<Project>,
+  updates: UpdateProjectBody,
 ) => {
   const fields = [];
   const values = [];
